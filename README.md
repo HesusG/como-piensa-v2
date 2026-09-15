@@ -11,7 +11,7 @@ revele la respuesta.
 
 | | v1 | v2 |
 |---|---|---|
-| escenas | 22 | 16 |
+| escenas | 22 | 18 |
 | momentos interactivos | 2 | 9 |
 | fotos | 4 | 7 |
 | palabras | ~1150 | ~600 |
@@ -27,6 +27,16 @@ decisión, al elegir una opción se marca la correcta y se revela la explicació
 con su dato y su fuente. Se puede cambiar de opción: nadie queda castigado.
 
 `?esc=N` salta a una escena concreta, útil para ensayar.
+
+## La secuencia
+
+1-2. Netflix y la primera decisión
+3-6. Los datos, los grupos y el abrumo
+7-8. El dato sucio y qué hacer primero
+9. **Las cuatro herramientas**, con sus iconos: se presentan por lo que dan
+10. El puente: cambia la tabla, no cambia el método
+11-14. Psicología, salud, ingeniería, negocio
+15-16. El patrón común y el cierre
 
 ## Las nueve decisiones
 
