@@ -143,6 +143,33 @@ kbd{font:inherit;font-size:13.5px;background:var(--sup);border:1px solid var(--l
   .herr button{font-size:13.5px;padding:12px 6px}
 }
 
+
+/* ---------- entra y sale de cada herramienta ---------- */
+.io{display:grid;grid-template-columns:1fr auto 1fr;gap:11px;align-items:stretch;
+  max-width:740px;margin:0 auto}
+.io .lado{border:1px solid var(--linea);border-radius:5px;overflow:hidden;
+  background:#fff;min-width:0;display:flex;flex-direction:column}
+.io .lado h5{margin:0;font:600 10px/1 Chivo,sans-serif;letter-spacing:.07em;
+  color:var(--apagado);padding:7px 10px;background:var(--sup);
+  border-bottom:1px solid var(--linea)}
+.io .lado .cuerpo{padding:9px 10px;flex:1;display:flex;align-items:center}
+.io .flecha{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--apagado);font-size:18px;flex:0 0 auto}
+.io .flecha small{font-size:10px;margin-top:2px;white-space:nowrap}
+.io table{width:100%;border-collapse:collapse;font:11.5px/1.5 ui-monospace,Menlo,monospace}
+.io table td,.io table th{padding:2px 5px;white-space:nowrap}
+.io table th{color:var(--apagado);font-weight:700;border-bottom:1px solid var(--linea);font-size:10.5px}
+.io table .num{text-align:right}
+.io .frase{font-size:14px;line-height:1.35}
+.io .frase b{color:var(--verde)}
+.io .barras{display:flex;align-items:flex-end;gap:5px;height:56px;width:100%}
+.io .barras i{flex:1;background:var(--azul-viz);border-radius:2px 2px 0 0;display:block}
+@media (max-width:820px){
+  .io{grid-template-columns:1fr;gap:7px}
+  .io .flecha{transform:rotate(90deg);padding:2px 0}
+  .io .flecha small{display:none}
+}
+
 /* svg */
 svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;margin:0 auto}
 .cap{font-family:Chivo;font-size:12.5px;fill:var(--apagado)}
@@ -187,8 +214,8 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   <div class="rejilla" aria-hidden="true"></div>
   <div class="port-txt">
     <h1>Cómo piensa<br>un analista de datos</h1>
-    <p class="sub">No se los voy a contar: lo van a hacer ustedes.
-    Cinco decisiones, quince minutos, cero código.</p>
+    <p class="sub">Alguien decidió qué aparece en tu pantalla esta mañana.
+    Vamos a ver cómo se toma esa decisión.</p>
     <p class="arranque">Avanza con el botón o con <kbd>&rarr;</kbd></p>
   </div>
 </section>
@@ -271,6 +298,28 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
 </section>
 
 <section class="esc" data-esc="6">
+  <h2>Ahí está la raya que trazaron.</h2>
+  <p>Nadie la dibujó por ustedes. Miraron los puntos, vieron dos grupos y supieron
+  dónde va la línea.</p>
+  <p class="mut">Eso tiene nombre: es análisis de datos. No hubo truco.</p>
+  <svg class="fig" viewBox="0 0 400 310" role="img" aria-label="Una línea separa los dos grupos de personas">
+      <line x1="56" y1="270" x2="380" y2="270" stroke="var(--linea)" stroke-width="1.5"/>
+      <line x1="56" y1="26" x2="56" y2="270" stroke="var(--linea)" stroke-width="1.5"/>
+      <text x="218" y="296" text-anchor="middle" class="cap">horas de comedia</text>
+      <circle cx="118" cy="96" r="7" fill="var(--azul-viz)" opacity=".85"/>
+      <circle cx="98" cy="122" r="7" fill="var(--azul-viz)" opacity=".85"/>
+      <circle cx="150" cy="110" r="7" fill="var(--azul-viz)" opacity=".85"/>
+      <circle cx="132" cy="140" r="7" fill="var(--azul-viz)" opacity=".85"/>
+      <circle cx="286" cy="196" r="7" fill="var(--rojo)" opacity=".85"/>
+      <circle cx="318" cy="168" r="7" fill="var(--rojo)" opacity=".85"/>
+      <circle cx="300" cy="222" r="7" fill="var(--rojo)" opacity=".85"/>
+      <circle cx="334" cy="208" r="7" fill="var(--rojo)" opacity=".85"/>
+      <path d="M218 36 L218 262" stroke="var(--ambar)" stroke-width="3" stroke-dasharray="8 7"/>
+      <text x="218" y="24" text-anchor="middle" class="cap-f" fill="var(--ambar)">la raya</text>
+  </svg>
+</section>
+
+<section class="esc" data-esc="7">
   <h2>Ahora con 300 millones de cuentas.</h2>
   <p>Misma pregunta de hace un minuto. Ya no se puede a simple vista. No les falta capacidad: les falta herramienta.</p>
   <svg class="fig" viewBox="0 0 400 310" role="img" aria-label="Demasiados puntos para ver un patrón">
@@ -540,7 +589,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </svg>
 </section>
 
-<section class="esc" data-esc="7">
+<section class="esc" data-esc="8">
   <h2>Miren esta tabla con cuidado.</h2>
   <div class="dato-cru" style="margin:0 auto 14px">
     <h4>horas vistas el mes pasado</h4>
@@ -564,7 +613,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="8">
+<section class="esc" data-esc="9">
   <h2>¿Y cómo se hace cuando son millones?</h2>
   <div class="duo">
     <div class="escena-foto"><img src="img/dash-720.webp" srcset="img/dash-720.webp 720w, img/dash-1440.webp 1440w" sizes="(max-width:820px) 100vw, 900px" alt="Una pantalla llena de datos y gráficos" decoding="async"><div class="pie"><b>Las herramientas</b>Cada una resuelve un tramo distinto</div></div>
@@ -581,9 +630,9 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="9">
+<section class="esc" data-esc="10">
   <h2>Cuatro herramientas, cuatro trabajos.</h2>
-  <p>No importa cómo se escriben. Importa qué te da cada una. Piquen la que quieran:</p>
+  <p>Piquen una y verán qué le entra y qué le sale. Sin código: solo lo que recibe y lo que devuelve.</p>
   <div class="herr">
     <button type="button" data-h="sql" aria-pressed="false">
       <span class="ico"><svg viewBox="0 0 24 24"><use href="#i-pg"/></svg></span>SQL</button>
@@ -594,13 +643,13 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
     <button type="button" data-h="bi" aria-pressed="false">
       <span class="ico"><svg viewBox="0 0 1200 1600"><use href="#i-pbi"/></svg></span>Power BI</button>
   </div>
-  <div class="salida">
+  <div class="salida" id="salida">
     <span class="q">ESCOJAN UNA</span>
-    <p>Cada una resuelve un tramo distinto del camino.</p>
+    <p>Van a ver qué le entra y qué le sale a cada una.</p>
   </div>
 </section>
 
-<section class="esc" data-esc="10">
+<section class="esc" data-esc="11">
   <h2>Ahora cambien la tabla.</h2>
   <p>Eso que acaban de recorrer (una pregunta, unos datos, una herramienta, una decisión)
   no cambia. Lo único que cambia es qué hay en las columnas.</p>
@@ -612,7 +661,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </svg>
 </section>
 
-<section class="esc" data-esc="11">
+<section class="esc" data-esc="12">
   <h2>Psicología.</h2>
   <div class="duo">
     <div class="escena-foto"><img src="img/psico-720.webp" srcset="img/psico-720.webp 720w, img/psico-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Una terapeuta toma notas durante una sesión" decoding="async"><div class="pie"><b>Psicología</b>Anotar lo que se observa ya es convertirlo en dato</div></div>
@@ -629,7 +678,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="12">
+<section class="esc" data-esc="13">
   <h2>Salud.</h2>
   <div class="duo">
     <div class="escena-foto"><img src="img/salud-720.webp" srcset="img/salud-720.webp 720w, img/salud-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Un médico observa un estudio en la pantalla" decoding="async"><div class="pie"><b>Salud</b>Leer una pantalla para decidir qué hacer</div></div>
@@ -646,7 +695,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="13">
+<section class="esc" data-esc="14">
   <h2>Ingeniería.</h2>
   <div class="duo">
     <div class="escena-foto"><img src="img/ing-720.webp" srcset="img/ing-720.webp 720w, img/ing-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Un operario trabaja frente a un tablero de control" decoding="async"><div class="pie"><b>Ingeniería</b>Los sensores avisan antes, si alguien mira</div></div>
@@ -663,7 +712,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="14">
+<section class="esc" data-esc="15">
   <h2>Negocio.</h2>
   <div class="duo">
     <div class="escena-foto"><img src="img/decidir-720.webp" srcset="img/decidir-720.webp 720w, img/decidir-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Manos sosteniendo una tableta con un gráfico" decoding="async"><div class="pie"><b>Negocio</b>Quién se va antes de avisar</div></div>
@@ -680,7 +729,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="15">
+<section class="esc" data-esc="16">
   <h2>¿Notaron el patrón?</h2>
   <div class="duo">
     <div class="escena-foto"><img src="img/datos2-720.webp" srcset="img/datos2-720.webp 720w, img/datos2-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Personas mirando gráficos y decidiendo juntas" decoding="async"><div class="pie"><b>En los cuatro casos</b>Nadie compró nada nuevo</div></div>
@@ -697,7 +746,7 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="esc" data-esc="16">
+<section class="esc" data-esc="17">
   <h2>Una última cosa.</h2>
   <p>El analista responde <b>qué pasó</b>. El científico estima <b>qué va a pasar</b>, y hace todo lo del primero.</p>
   <p class="mut">Por eso se empieza por analista: no es la versión chiquita, es la base.</p>
@@ -776,28 +825,54 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   });
 
 
-  // Las herramientas: se presentan por lo que dan, no por su sintaxis.
-  var HERR = {
-    sql:  ['SQL', 'Te trae los datos que ya están guardados.',
-           '«Dame las horas de este mes, ordenadas» y llegan las filas. Millones si hace falta.'],
-    hoja: ['Hoja de cálculo', 'Te deja verlos y moverlos.',
-           'Es donde ordenas y salta a la vista el perfil de 31 horas. Sin esto, ese dato se te cuela.'],
-    est:  ['Estadística', 'Te dice si el patrón es real o es casualidad.',
-           '¿Ese grupo ve de verdad más comedia, o fueron cuatro personas raras? Eso lo contesta ella.'],
-    bi:   ['Power BI', 'Se lo enseña a quien decide.',
-           'Tu jefe no va a leer la tabla. Va a mirar el gráfico diez segundos y va a preguntar.']
+  // Cada herramienta, con lo que le entra y lo que le sale. Muy breve: se ve,
+  // no se explica.
+  var T = function(cab, filas){
+    return '<table><tr>' + cab.map(function(c,i){
+      return '<th' + (i ? ' class="num"' : '') + '>' + c + '</th>'; }).join('') + '</tr>'
+      + filas.map(function(f){ return '<tr>' + f.map(function(v,i){
+          return '<td' + (i ? ' class="num"' : '') + '>' + v + '</td>'; }).join('') + '</tr>';
+        }).join('') + '</table>';
   };
 
+  var HERR = {
+    sql: ['SQL', 'te trae lo que pediste', 'pedimos',
+      T(['perfil','horas'], [['1041','12'],['2277','2'],['3814','11'],['…','…']])
+        + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">millones de filas</div>',
+      T(['perfil','horas'], [['1041','12'],['3814','11']])
+        + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">solo las que importan</div>'],
+
+    hoja: ['Hoja de cálculo', 'te deja verlos y ordenarlos', 'ordenamos',
+      T(['perfil','horas'], [['1041','13'],['9902','31'],['3814','12']]),
+      T(['perfil','horas'], [['<b>9902</b>','<b>31</b>'],['1041','13'],['3814','12']])
+        + '<div style="font-size:10.5px;color:var(--rojo);margin-top:5px">el imposible, hasta arriba</div>'],
+
+    est: ['Estadística', 'te dice si el patrón es real', 'comparamos',
+      T(['grupo','gente','comedia'], [['A','4 812','11.4 h'],['B','5 190','2.1 h']]),
+      '<div class="frase">La diferencia se sostiene con miles de personas.<br>'
+        + '<b>No fueron cuatro casos raros.</b></div>'],
+
+    bi: ['Power BI', 'se lo enseña a quien decide', 'mostramos',
+      T(['mes','valor'], [['ene','38'],['feb','61'],['mar','52'],['abr','74']]),
+      '<div class="barras"><i style="height:38%"></i><i style="height:61%"></i>'
+        + '<i style="height:52%"></i><i style="height:74%"></i></div>'
+        + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">diez segundos y ya lo entendió</div>']
+  };
+
+  var salida = document.getElementById('salida');
   [].forEach.call(document.querySelectorAll('[data-h]'), function(b){
     b.addEventListener('click', function(){
-      var escena = b.closest('.esc');
-      [].forEach.call(escena.querySelectorAll('[data-h]'), function(o){
+      [].forEach.call(document.querySelectorAll('[data-h]'), function(o){
         o.setAttribute('aria-pressed', String(o === b));
       });
       var t = HERR[b.dataset.h];
-      var sal = escena.querySelector('.salida');
-      sal.innerHTML = '<span class="q">' + t[0].toUpperCase() + '</span>'
-        + '<span class="g">' + t[1] + '</span><p>' + t[2] + '</p>';
+      salida.innerHTML =
+        '<span class="q">' + t[0].toUpperCase() + ' · ' + t[1] + '</span>'
+        + '<div class="io">'
+        +   '<div class="lado"><h5>LE ENTRA</h5><div class="cuerpo">' + t[3] + '</div></div>'
+        +   '<div class="flecha">&rarr;<small>' + t[2] + '</small></div>'
+        +   '<div class="lado"><h5>LE SALE</h5><div class="cuerpo">' + t[4] + '</div></div>'
+        + '</div>';
     });
   });
 
