@@ -261,6 +261,26 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   .tele .marca{font-size:19px}
   .mos{font-size:9px}
 }
+
+/* ---------- las cuatro industrias, de corrido ---------- */
+.industrias{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:16px}
+.caso{border:1px solid var(--linea);border-radius:5px;overflow:hidden;background:#fff;
+  display:flex;flex-direction:column}
+.caso .foto{position:relative;height:118px;overflow:hidden;flex:0 0 auto}
+.caso .foto img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(100%) contrast(1.06)}
+.caso .foto span{position:absolute;left:0;bottom:0;right:0;
+  background:linear-gradient(transparent,rgba(20,20,24,.82));
+  color:#fff;font-size:13px;font-weight:600;padding:16px 11px 7px}
+.caso .txt{padding:11px 13px 12px}
+.caso .cifra{font-family:Fraunces,Georgia,serif;font-variation-settings:'WONK' 1,'opsz' 90;
+  font-size:19px;font-weight:600;color:var(--azul);line-height:1.2;display:block}
+.caso .expl{font-size:13.5px;color:var(--tinta);line-height:1.4;margin-top:5px}
+.caso .fuente-min{margin-top:7px}
+@media (max-width:820px){
+  .industrias{grid-template-columns:1fr;gap:10px}
+  .caso .foto{height:96px}
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -775,8 +795,6 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
 <section class="esc" data-esc="12">
   <h2>Ahora cambien la tabla.</h2>
   <p>Ese camino no cambia. Lo único que cambia es qué hay en las columnas.</p>
-  <p class="mut">Los cuatro casos que siguen están publicados, con nombre y cifras.
-  En todos, lo único nuevo fue mirar datos que ya existían.</p>
   <svg class="fig" viewBox="0 0 420 130" role="img" aria-label="Cambia la tabla, no cambia el método">
     <text x="210" y="52" text-anchor="middle" style="font-family:Fraunces;font-variation-settings:'WONK' 1,'opsz' 90;font-size:27px;font-weight:600;fill:var(--tinta)">cambia la tabla</text>
     <text x="210" y="92" text-anchor="middle" style="font-family:Fraunces;font-variation-settings:'WONK' 1,'opsz' 90;font-size:27px;font-weight:600;fill:var(--azul)">no cambia el método</text>
@@ -784,91 +802,50 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
 </section>
 
 <section class="esc" data-esc="13">
-  <h2>Psicología.</h2>
-  <div class="duo">
-    <div class="escena-foto"><img src="img/psico-720.webp" srcset="img/psico-720.webp 720w, img/psico-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Una terapeuta toma notas durante una sesión" decoding="async"><div class="pie"><b>Psicología</b>Anotar lo que se observa ya es convertirlo en dato</div></div>
-    <div>
-    <div class="decide">
-      <span class="preg">Mismos medicamentos en dos grupos. Al segundo le miden con un cuestionario cada sesión. ¿Qué pasó?</span>
-      <div class="ops tres"><button type="button" data-ok="0"><span class="let">A</span>Casi lo mismo</button><button type="button" data-ok="0"><span class="let">B</span>Mejoró un poco</button><button type="button" data-ok="1"><span class="let">C</span>Se multiplicó</button></div>
-      <div class="respuesta">
-        <span class="titulo">La recuperación pasó de 28.8% a 73.8%.</span>
-        <p>El medicamento no cambió. Solo cambió medir en cada sesión y ajustar con esos datos: el doble de ajustes, y más temprano.</p><div class="dato">Medir <b>es</b> el tratamiento.</div><div class="fuente-min">Estudio con 120 pacientes, American Journal of Psychiatry, 2015</div>
+  <h2>Y lo mismo pasa en otras industrias.</h2>
+  <p>Cuatro casos publicados, con nombre y cifras. En todos, lo único nuevo fue mirar datos que ya existían.</p>
+  <div class="industrias">
+
+    <div class="caso">
+      <div class="foto"><img src="img/psico-720.webp" srcset="img/psico-720.webp 720w, img/psico-1440.webp 1440w" sizes="(max-width:820px) 100vw, 420px" alt="Una terapeuta toma notas durante una sesión" decoding="async"><span>Psicología</span></div>
+      <div class="txt">
+        <b class="cifra">La recuperación pasó de 28.8% a 73.8%.</b>
+        <p class="expl">Los medicamentos no cambiaron. Solo empezaron a medir con un cuestionario en cada sesión, y a ajustar con eso.</p>
+        <div class="fuente-min">120 pacientes, American Journal of Psychiatry, 2015</div>
       </div>
     </div>
+
+    <div class="caso">
+      <div class="foto"><img src="img/salud-720.webp" srcset="img/salud-720.webp 720w, img/salud-1440.webp 1440w" sizes="(max-width:820px) 100vw, 420px" alt="Un médico observa un estudio en la pantalla" decoding="async"><span>Salud</span></div>
+      <div class="txt">
+        <b class="cifra">La mortalidad bajó de 13.9% a 8.8%.</b>
+        <p class="expl">Nadie compró una máquina nueva. Juntaron los signos vitales que ya se anotaban y encontraron las señales que aparecen horas antes.</p>
+        <div class="fuente-min">6,681 pacientes, Critical Care Medicine, 2022</div>
+      </div>
     </div>
+
+    <div class="caso">
+      <div class="foto"><img src="img/ing-720.webp" srcset="img/ing-720.webp 720w, img/ing-1440.webp 1440w" sizes="(max-width:820px) 100vw, 420px" alt="Un operario trabaja frente a un tablero de control" decoding="async"><span>Ingeniería</span></div>
+      <div class="txt">
+        <b class="cifra">Subió 20% el valor de esa energía.</b>
+        <p class="expl">Las turbinas son las mismas y producen lo mismo. Pero predecir cuánta energía habrá permite venderla con un día de anticipación.</p>
+        <div class="fuente-min">Google, 2019</div>
+      </div>
+    </div>
+
+    <div class="caso">
+      <div class="foto"><img src="img/decidir-720.webp" srcset="img/decidir-720.webp 720w, img/decidir-1440.webp 1440w" sizes="(max-width:820px) 100vw, 420px" alt="Manos sosteniendo una tableta con un gráfico" decoding="async"><span>Negocio</span></div>
+      <div class="txt">
+        <b class="cifra">Más de mil millones al año.</b>
+        <p class="expl">Es el recomendador del principio, al revés: en vez de adivinar qué le va a gustar a alguien, detecta a quién ya se cansó y todavía no avisa.</p>
+        <div class="fuente-min">Escrito por gente de Netflix, 2015</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section class="esc" data-esc="14">
-  <h2>Salud.</h2>
-  <div class="duo">
-    <div class="escena-foto"><img src="img/salud-720.webp" srcset="img/salud-720.webp 720w, img/salud-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Un médico observa un estudio en la pantalla" decoding="async"><div class="pie"><b>Salud</b>Leer una pantalla para decidir qué hacer</div></div>
-    <div>
-    <div class="decide">
-      <span class="preg">Los signos vitales ya se anotaban. Alguien los juntó y buscó patrones. ¿Qué pasó con la mortalidad?</span>
-      <div class="ops tres"><button type="button" data-ok="1"><span class="let">A</span>Bajó de 13.9% a 8.8%</button><button type="button" data-ok="0"><span class="let">B</span>Bajó menos de un punto</button><button type="button" data-ok="0"><span class="let">C</span>No cambió</button></div>
-      <div class="respuesta">
-        <span class="titulo">Bajó cinco puntos. Con 6,681 pacientes.</span>
-        <p>Nadie compró una máquina nueva. Juntaron lo que ya anotaban y encontraron las señales que aparecen horas antes.</p><div class="dato">Los enfermeros revisaban cada dos horas a quien el sistema marcaba.</div><div class="fuente-min">Critical Care Medicine, 2022</div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="esc" data-esc="15">
-  <h2>Ingeniería.</h2>
-  <div class="duo">
-    <div class="escena-foto"><img src="img/ing-720.webp" srcset="img/ing-720.webp 720w, img/ing-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Un operario trabaja frente a un tablero de control" decoding="async"><div class="pie"><b>Ingeniería</b>Los sensores avisan antes, si alguien mira</div></div>
-    <div>
-    <div class="decide">
-      <span class="preg">Una granja de turbinas predice cuánta energía habrá con 36 horas de anticipación. ¿Para qué sirve eso?</span>
-      <div class="ops dos"><button type="button" data-ok="0"><span class="let">A</span>Para producir más</button><button type="button" data-ok="1"><span class="let">B</span>Para venderla mejor</button></div>
-      <div class="respuesta">
-        <span class="titulo">Subió 20% el valor de esa energía.</span>
-        <p>La turbina es la misma y produce lo mismo. Pero saber cuánta habrá permite comprometerla con un día de anticipación, y eso vale más.</p><div class="dato">Lo que cambió fue <b>saber qué va a pasar</b>.</div><div class="fuente-min">Google, 2019</div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="esc" data-esc="16">
-  <h2>Negocio.</h2>
-  <div class="duo">
-    <div class="escena-foto"><img src="img/decidir-720.webp" srcset="img/decidir-720.webp 720w, img/decidir-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Manos sosteniendo una tableta con un gráfico" decoding="async"><div class="pie"><b>Negocio</b>Quién se va antes de avisar</div></div>
-    <div>
-    <div class="decide">
-      <span class="preg">Tres clientes. Uno entró 3 veces este mes y no vuelve hace 26 días. ¿Qué diría?</span>
-      <div class="ops dos"><button type="button" data-ok="1"><span class="let">A</span>Ya se fue, aunque siga pagando</button><button type="button" data-ok="0"><span class="let">B</span>Está bien, sigue pagando</button></div>
-      <div class="respuesta">
-        <span class="titulo">Ya se fue. La baja formal llega después.</span>
-        <p>Es el recomendador del principio, al revés: en vez de adivinar qué te va a gustar, detecta a quién ya se cansó.</p><div class="dato">Netflix estima que esto le vale <b>más de mil millones al año</b>.</div><div class="fuente-min">Escrito por gente de Netflix, 2015</div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="esc" data-esc="17">
-  <h2>¿Notaron el patrón?</h2>
-  <div class="duo">
-    <div class="escena-foto"><img src="img/datos2-720.webp" srcset="img/datos2-720.webp 720w, img/datos2-1440.webp 1440w" sizes="(max-width:820px) 100vw, 560px" alt="Personas mirando gráficos y decidiendo juntas" decoding="async"><div class="pie"><b>En los cuatro casos</b>Nadie compró nada nuevo</div></div>
-    <div>
-  <div class="decide">
-    <span class="preg">¿Qué tuvieron en común los cuatro casos?</span>
-    <div class="ops tres"><button type="button" data-ok="0"><span class="let">A</span>Compraron mejor tecnología</button><button type="button" data-ok="0"><span class="let">B</span>Contrataron más gente</button><button type="button" data-ok="1"><span class="let">C</span>Miraron datos que ya tenían</button></div>
-    <div class="respuesta">
-      <span class="titulo">Los datos ya estaban ahí.</span>
-      <p>El medicamento no cambió. Los signos vitales ya se anotaban. La turbina es la misma. Lo único que cambió fue que alguien los miró.</p>
-    </div>
-  </div>
-    </div>
-  </div>
-</section>
-
-<section class="esc" data-esc="18">
   <h2>Una última cosa.</h2>
   <p>El analista responde <b>qué pasó</b>. El científico estima <b>qué va a pasar</b>, y hace todo lo del primero.</p>
   <p class="mut">Por eso se empieza por analista: no es la versión chiquita, es la base.</p>
