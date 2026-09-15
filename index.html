@@ -118,21 +118,6 @@ kbd{font:inherit;font-size:13.5px;background:var(--sup);border:1px solid var(--l
 .rejilla i{border-radius:5px;display:block}
 .port-txt{position:relative;z-index:1;max-width:min(18em,72%)}
 
-/* ---------- apéndice ---------- */
-.apen{display:none;min-height:100svh;max-width:min(800px,100%);margin:0 auto;
-  padding:clamp(20px,5vh,46px) clamp(20px,5vw,38px) 100px}
-.apen.viva{display:block}
-.apen h2{font-size:22px;color:var(--apagado);margin-bottom:6px}
-.fuente{border-top:1px solid var(--linea);font-size:15px}
-.fuente summary{cursor:pointer;padding:10px 0;font-weight:500;color:var(--apagado);font-size:14.5px;
-  list-style:none;display:flex;align-items:center;gap:9px}
-.fuente summary::-webkit-details-marker{display:none}
-.fuente summary::before{content:'+';font-family:ui-monospace,monospace;
-  font-weight:400;color:var(--apagado);width:1em;flex:0 0 auto}
-.fuente[open] summary::before{content:'\2212'}
-.fuente .d{color:var(--apagado);font-size:13.5px;padding:0 0 13px 1.55em;line-height:1.5}
-.legal{border-top:1px solid var(--linea);margin-top:28px;padding-top:13px;
-  font-size:12.5px;color:var(--apagado)}
 
 
 /* ---------- herramientas: clic para ver qué da cada una ---------- */
@@ -725,69 +710,6 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   </div>
 </section>
 
-<section class="apen" data-esc="17">
-  <h2>De dónde salió cada cosa</h2>
-  <p class="mut" style="font-size:13.5px">Si quieren revisar por su cuenta, aquí están las fuentes y unos
-  datos abiertos para practicar.</p>
-
-  <details class="fuente">
-    <summary>Netflix · Relación con inversionistas</summary>
-    <div class="d">De aquí sale el número de cuentas. Netflix publica sus cifras
-    cada trimestre.<p class="liga-f"><a href="https://ir.netflix.net/ir-overview/profile/default.aspx" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>Netflix Research · Recomendaciones</summary>
-    <div class="d">El equipo de Netflix explica cómo funciona el sistema que arma
-    su pantalla de inicio. En inglés, pero con ejemplos visuales.<p class="liga-f"><a href="https://research.netflix.com/research-area/recommendations" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>Medir en cada sesión, en depresión</summary>
-    <div class="d">De aquí sale el 28.8% contra 73.8%. Estudio con 120 pacientes,
-    con los mismos medicamentos en los dos grupos. American Journal of Psychiatry, 2015.<p class="liga-f"><a href="https://psychiatryonline.org/doi/10.1176/appi.ajp.2015.14050652" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>Alerta temprana en hospitales</summary>
-    <div class="d">De aquí sale la mortalidad de 13.9% a 8.8%, con 6,681 pacientes
-    en cuatro hospitales. Critical Care Medicine, 2022. Ojo: compara dos años
-    seguidos, no es un sorteo al azar entre pacientes.<p class="liga-f"><a href="https://pubmed.ncbi.nlm.nih.gov/35452010/" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>El sistema de recomendación de Netflix</summary>
-    <div class="d">Escrito por gente de Netflix. De aquí sale que influye en cerca
-    del 80% de las horas vistas, y que ellos estiman que les ahorra más de mil
-    millones de dólares al año.<p class="liga-f"><a href="https://dl.acm.org/doi/10.1145/2843948" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>UCI · Heart Disease</summary>
-    <div class="d">Salud. 303 pacientes y 14 columnas, cabe en una hoja de cálculo.
-    Para practicar la raya entre «vigilar» y «ya».<p class="liga-f"><a href="https://archive.ics.uci.edu/dataset/45/heart+disease" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>Our World in Data · Satisfacción con la vida</summary>
-    <div class="d">Psicología. Escala de 0 a 10 por país y año, con todos los países
-    de la región. Filtren el suyo.<p class="liga-f"><a href="https://ourworldindata.org/grapher/happiness-cantril-ladder" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>UCI · Air Quality</summary>
-    <div class="d">Ingeniería. 9.358 lecturas de sensores. Los datos faltantes
-    vienen como −200: ahí está el ejercicio del que hablamos.<p class="liga-f"><a href="https://archive.ics.uci.edu/dataset/360/air+quality" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-
-  <details class="fuente">
-    <summary>UCI · Bank Marketing</summary>
-    <div class="d">Negocio. Quién contrata y quién no. Ojo con la columna
-    <i>duration</i>: predice casi perfecto, pero solo se sabe después de llamar.<p class="liga-f"><a href="https://archive.ics.uci.edu/dataset/222/bank+marketing" target="_blank" rel="noopener">Abrir la fuente</a></p></div>
-  </details>
-  <p class="legal">Todas las marcas y logotipos son propiedad de sus respectivos
-  dueños. Se usan aquí de forma ilustrativa y con fines educativos.</p>
-</section>
 <script>
 (function(){
   'use strict';
