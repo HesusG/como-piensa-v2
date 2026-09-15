@@ -131,7 +131,7 @@ kbd{font:inherit;font-size:13.5px;background:var(--sup);border:1px solid var(--l
 .herr .ico{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
 .herr .ico svg{max-width:100%;max-height:100%}
 .salida{border:2px solid var(--linea);border-radius:6px;background:#fff;
-  padding:15px 17px;max-width:740px;margin:0 auto;min-height:104px}
+  padding:14px 16px;max-width:760px;margin:0 auto;min-height:104px}
 .salida .q{font:600 11px/1 Chivo,sans-serif;letter-spacing:.06em;
   color:var(--apagado);display:block;margin-bottom:7px}
 .salida .g{font-family:Fraunces,Georgia,serif;
@@ -152,7 +152,8 @@ kbd{font:inherit;font-size:13.5px;background:var(--sup);border:1px solid var(--l
 .io .lado h5{margin:0;font:600 10px/1 Chivo,sans-serif;letter-spacing:.07em;
   color:var(--apagado);padding:7px 10px;background:var(--sup);
   border-bottom:1px solid var(--linea)}
-.io .lado .cuerpo{padding:9px 10px;flex:1;display:flex;align-items:center}
+.io .lado .cuerpo{padding:9px 10px;flex:1;display:flex;flex-direction:column;
+  align-items:stretch;justify-content:center;min-height:132px}
 .io .flecha{display:flex;flex-direction:column;align-items:center;justify-content:center;
   color:var(--apagado);font-size:18px;flex:0 0 auto}
 .io .flecha small{font-size:10px;margin-top:2px;white-space:nowrap}
@@ -169,6 +170,39 @@ kbd{font:inherit;font-size:13.5px;background:var(--sup);border:1px solid var(--l
   .io .flecha{transform:rotate(90deg);padding:2px 0}
   .io .flecha small{display:none}
 }
+
+
+/* --- SQL: una base de datos con reglas --- */
+.bd{display:flex;flex-direction:column;gap:6px;width:100%}
+.bd .tablita{border:1px solid var(--azul);border-radius:4px;overflow:hidden;background:#fff}
+.bd .tablita b{display:block;font:600 9.5px/1 Chivo,sans-serif;letter-spacing:.06em;
+  background:var(--azul-p);color:var(--azul);padding:4px 7px;border-bottom:1px solid var(--azul)}
+.bd .campos{padding:4px 7px;font:10.5px/1.6 ui-monospace,Menlo,monospace;color:var(--apagado)}
+.bd .campos i{font-style:normal;color:var(--tinta)}
+.bd .llave{color:var(--ambar);font-weight:700}
+.bd .union{text-align:center;font-size:10px;color:var(--apagado);margin:-2px 0}
+
+/* --- Excel: sucio, con huecos --- */
+.suc{width:100%;border-collapse:collapse;font:11.5px/1.5 ui-monospace,Menlo,monospace}
+.suc td,.suc th{border:1px solid #E3E6EB;padding:3px 6px;white-space:nowrap}
+.suc th{background:#EFF1F4;color:var(--apagado);font-size:10px;font-weight:700}
+.suc td.hueco{background:repeating-linear-gradient(45deg,#FFF6F4,#FFF6F4 4px,#FFE8E2 4px,#FFE8E2 8px);
+  color:var(--rojo);font-style:italic;font-size:10px}
+.suc td.raro{background:var(--ambar-p);font-weight:700}
+.suc .fila-n{background:#F7F8FA;color:var(--apagado);text-align:center;width:22px;font-size:9.5px}
+
+/* --- Python: código --- */
+.cod{background:#1B1F27;border-radius:4px;padding:9px 11px;width:100%;
+  font:11px/1.65 ui-monospace,Menlo,monospace;color:#D7DCE4;overflow-x:auto}
+.cod .kw{color:#C792EA}
+.cod .fn{color:#82AAFF}
+.cod .st{color:#C3E88D}
+.cod .cm{color:#5F6B7F;font-style:italic}
+.cod .nu{color:#F78C6C}
+
+/* --- Power BI: el panel --- */
+.panel{width:100%;border-radius:4px;overflow:hidden;border:1px solid var(--linea)}
+.panel img{width:100%;height:112px;object-fit:cover;display:block}
 
 /* svg */
 svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;margin:0 auto}
@@ -825,38 +859,68 @@ svg.fig{width:100%;max-width:440px;max-height:36svh;height:auto;display:block;ma
   });
 
 
-  // Cada herramienta, con lo que le entra y lo que le sale. Muy breve: se ve,
-  // no se explica.
-  var T = function(cab, filas){
-    return '<table><tr>' + cab.map(function(c,i){
-      return '<th' + (i ? ' class="num"' : '') + '>' + c + '</th>'; }).join('') + '</tr>'
-      + filas.map(function(f){ return '<tr>' + f.map(function(v,i){
-          return '<td' + (i ? ' class="num"' : '') + '>' + v + '</td>'; }).join('') + '</tr>';
-        }).join('') + '</table>';
-  };
-
+  // Cada herramienta se ve distinta, porque son cosas distintas:
+  // SQL es una base con reglas, Excel una hoja sucia, Python es código,
+  // Power BI es un panel que alguien mira.
   var HERR = {
-    sql: ['SQL', 'te trae lo que pediste', 'pedimos',
-      T(['perfil','horas'], [['1041','12'],['2277','2'],['3814','11'],['…','…']])
-        + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">millones de filas</div>',
-      T(['perfil','horas'], [['1041','12'],['3814','11']])
-        + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">solo las que importan</div>'],
+    sql: ['SQL', 'una base con reglas, no una hoja suelta', 'le pides',
+      '<div class="bd">'
+      + '<div class="tablita"><b>PERFILES</b><div class="campos">'
+      +   '<span class="llave">id</span> · <i>pais</i> · <i>alta</i></div></div>'
+      + '<div class="union">▲ se unen por <b>id</b></div>'
+      + '<div class="tablita"><b>VISTAS</b><div class="campos">'
+      +   '<span class="llave">id</span> · <i>genero</i> · <i>horas</i></div></div>'
+      + '<div style="font-size:10px;color:var(--apagado);margin-top:3px">'
+      +   'cada columna tiene su tipo, y no acepta basura</div></div>',
+      '<table><tr><th>perfil</th><th class="num">comedia</th></tr>'
+      + '<tr><td>1041</td><td class="num">12 h</td></tr>'
+      + '<tr><td>3814</td><td class="num">11 h</td></tr></table>'
+      + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">'
+      +   'las filas exactas que pediste</div>'],
 
-    hoja: ['Hoja de cálculo', 'te deja verlos y ordenarlos', 'ordenamos',
-      T(['perfil','horas'], [['1041','13'],['9902','31'],['3814','12']]),
-      T(['perfil','horas'], [['<b>9902</b>','<b>31</b>'],['1041','13'],['3814','12']])
-        + '<div style="font-size:10.5px;color:var(--rojo);margin-top:5px">el imposible, hasta arriba</div>'],
+    hoja: ['Hoja de cálculo', 'todo junto y sucio, como llega de verdad', 'lo ordenas',
+      '<table class="suc">'
+      + '<tr><th class="fila-n"></th><th>perfil</th><th>horas</th><th>zona</th></tr>'
+      + '<tr><td class="fila-n">1</td><td>1041</td><td>13</td><td>norte</td></tr>'
+      + '<tr><td class="fila-n">2</td><td>2277</td><td class="hueco">(vacío)</td><td>SUR</td></tr>'
+      + '<tr><td class="fila-n">3</td><td>9902</td><td class="raro">31</td><td>norte</td></tr>'
+      + '<tr><td class="fila-n">4</td><td>1041</td><td>13</td><td>Norte</td></tr>'
+      + '</table>'
+      + '<div style="font-size:10px;color:var(--rojo);margin-top:4px">'
+      +   'huecos, repetidos y «norte» escrito de tres formas</div>',
+      '<table class="suc">'
+      + '<tr><th class="fila-n"></th><th>perfil</th><th>horas</th></tr>'
+      + '<tr><td class="fila-n">1</td><td class="raro">9902</td><td class="raro">31</td></tr>'
+      + '<tr><td class="fila-n">2</td><td>1041</td><td>13</td></tr>'
+      + '</table>'
+      + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">'
+      +   'ordenas y el imposible sale a flote</div>'],
 
-    est: ['Estadística', 'te dice si el patrón es real', 'comparamos',
-      T(['grupo','gente','comedia'], [['A','4 812','11.4 h'],['B','5 190','2.1 h']]),
-      '<div class="frase">La diferencia se sostiene con miles de personas.<br>'
-        + '<b>No fueron cuatro casos raros.</b></div>'],
+    est: ['Estadística', 'aquí sí hay código, y es corto', 'lo calculas',
+      '<div class="cod">'
+      + '<span class="cm"># ¿los dos grupos son de verdad?</span><br>'
+      + '<span class="kw">from</span> scipy <span class="kw">import</span> stats<br>'
+      + 'stats.<span class="fn">ttest_ind</span>(grupo_a, grupo_b)'
+      + '</div>',
+      '<div class="cod">'
+      + '<span class="cm"># resultado</span><br>'
+      + 'p = <span class="nu">0.0001</span><br>'
+      + '<span class="cm"># menos de 1 en 10 000 de que sea azar</span>'
+      + '</div>'
+      + '<div style="font-size:10.5px;color:var(--verde);margin-top:5px;font-weight:600">'
+      +   'no fueron cuatro casos raros</div>'],
 
-    bi: ['Power BI', 'se lo enseña a quien decide', 'mostramos',
-      T(['mes','valor'], [['ene','38'],['feb','61'],['mar','52'],['abr','74']]),
-      '<div class="barras"><i style="height:38%"></i><i style="height:61%"></i>'
-        + '<i style="height:52%"></i><i style="height:74%"></i></div>'
-        + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">diez segundos y ya lo entendió</div>']
+    bi: ['Power BI', 'los números que nadie quiere leer', 'lo muestras',
+      '<table><tr><th>mes</th><th class="num">valor</th></tr>'
+      + '<tr><td>ene</td><td class="num">38</td></tr>'
+      + '<tr><td>feb</td><td class="num">61</td></tr>'
+      + '<tr><td>mar</td><td class="num">52</td></tr>'
+      + '<tr><td>abr</td><td class="num">74</td></tr></table>',
+      '<div class="panel"><img src="img/panel-720.webp" '
+      +   'srcset="img/panel-720.webp 720w, img/panel-1440.webp 1440w" '
+      +   'sizes="340px" alt="Una hoja con gráficos de tablero" decoding="async"></div>'
+      + '<div style="font-size:10.5px;color:var(--apagado);margin-top:5px">'
+      +   'tu jefe lo entiende en diez segundos</div>']
   };
 
   var salida = document.getElementById('salida');
